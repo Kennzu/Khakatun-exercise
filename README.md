@@ -17,14 +17,15 @@
 Необходимо разработать модель, которая по истории [1,T] делает рекомендацию по объему тендера для недели T. Рекомендация на N недель фиксирует цену на N недель, следующий тендер будет проведен на неделе T+N. Считаем, что тендеры проводятся по пятницам, оперировать можно историческими данными до четверга включительно. 
 Целевая метрика: средняя цена закупки арматуры при проведении тендеров на промежутке 1/07/22 – 23/12/22
 Методология расчета (псевдокод):
-pp_array = []
-ll_array = []
-for start_date in [все пятницы с 1/07 – 23/12]:
-	for end_date in [start_date + 2 недели, 26/12]:
-		price_period = Средняя Цена закупки за период [start_date, end_date)
-		len_period = end_date – start_date – 1
-		pp_array.append(price_period)
-		ll_array.append(len_period)
-final_avg_price = sum(np.array(pp_array) * np.array(ll_array)) / sum(np.array(ll_array)) – взвешенное среднее
+[#pp_array = []
+#ll_array = []
+#for start_date in [все пятницы с 1/07 – 23/12]:
+	#for end_date in [start_date + 2 недели, 26/12]:
+		#price_period = Средняя Цена закупки за период [start_date, end_date)
+		#len_period = end_date – start_date – 1
+		#pp_array.append(price_period)
+		#ll_array.append(len_period)
+#final_avg_price = sum(np.array(pp_array) * np.array(ll_array)) / sum(np.array(ll_array)) – взвешенное среднее](url)
+
 Стоит аккуратно отнестись к вычислению средней закупки за период, имейте в виду что в остаток периода может поместиться не весь N. 
 На забудьте аккуратно настроить схему валидации, подумайте над отбором признаков, точек мало – данных много.
